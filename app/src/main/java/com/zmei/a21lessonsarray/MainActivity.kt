@@ -66,10 +66,19 @@ class MainActivity : AppCompatActivity() {
         for (index in 0 until gradeArray.size ) {
         if (gradeArray[index] == excellent) {
                 if (nameArray.indices == nameArray.indices) {
-                    Log.d("my log", "Отличные оценки: Ученик:${nameArray[index]} - ${gradeArray[index]}")
+                    Log.d("my log", "Отличные оценки: Ученик:${nameArray[index]} - ${gradeArray[index]}")}}}
 
-                }}
+    for ((index, name) in nameArray.withIndex()){
+        when (gradeArray[index]){
+            in bad -> badArray.add("Плохие оценки: Ученик: $name -${gradeArray[index]}")
+            in normal -> normalArray.add("Нормальные оценки: Ученик: $name -${gradeArray[index]}")
+            in nice -> niceArray.add("Хорошие оценки: Ученик: $name -${gradeArray[index]}")
+            excellent -> excellentArray.add("Отличные оценки: Ученик: $name -${gradeArray[index]}")
         }
-
+    }
+        badArray.forEach{Log.d("mylog", it)}
+        normalArray.forEach{Log.d("mylog", it)}
+        niceArray.forEach{Log.d("mylog", it)}
+        excellentArray.forEach{Log.d("mylog", it)}
     }
 }
